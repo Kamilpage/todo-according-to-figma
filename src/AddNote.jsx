@@ -2,7 +2,7 @@ import "./Main.css";
 import React, { useState } from "react";
 
 function AddNote() {
-    const [tasks, setTasks] = useState(["ebat gandon", "chort suk"]);
+    const [tasks, setTasks] = useState(["Пример задачи"]);
     const [input, setInput] = useState("");
     const [editingIndex, setEditingIndex] = useState(null);
     const [draft, setDraft] = useState("");
