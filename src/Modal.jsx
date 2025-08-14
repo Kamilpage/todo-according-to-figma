@@ -1,15 +1,29 @@
-import React from 'react';
-import './Main.css'
-export default function Modal() {
-    return (
-        <div >
-            <h2>New Note</h2>
-            <input type="text" placeholder="Input your note..." id="" />
-            <div>
-                <button>Cancel</button>
-                <button>Apply</button>
-            </div>
-        </div>
+import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
+import "./modal.css";
 
+export default function Modal({ isOpen, onClose, children }) {
+    if (!isOpen) return null;
+
+    useEffect(() => {
+        document.addEventListener('keydown', handleEscape);
+        return () => {
+            document.removeEventListener('keydown', handleEscape)
+        }
+    }, [])
+
+    const handleEscape = (e) => {
+        if (e.key === "Escape") { onClose() };
+    }
+    return ReactDOM.createPortal(
+        <div className="modal-overlay" onClick={onClose}>
+            <div
+                className="modal-content"
+                onClick={(e) => e.stopPropagation()}
+            >
+                {children}
+            </div>
+        </div>,
+        document.body
     );
 }

@@ -29,7 +29,7 @@ h1 {
     color: black;
 }
 
-.add-input {
+.search-input {
     width: 595px;
     height: 38px;
     border-radius: 5px;
@@ -37,15 +37,23 @@ h1 {
 }
 
 .add-btn {
-    position: absolute;
-    right: 10px;
-    top: 12px;
+    position: fixed;
     cursor: pointer;
-    background-color: purple;
+    background-color: rgb(0, 0, 0);
     color: white;
+    bottom: 60px;
+    margin-left: 150px;
+    border-radius: 50%;
+    padding: 8px;
+    border: none;
+    transition: all 0.4s ease;
 }
 
-.add-input::placeholder {
+.add-btn:hover {
+    transform: scale(1.1);
+}
+
+.search-input::placeholder {
     color: #C3C1E5;
     font-family: "Inter", sans-serif;
     font-size: 16px;
@@ -53,7 +61,7 @@ h1 {
     padding-left: 16px;
 }
 
-.add-input:focus {
+.search-input:focus {
     border: 2px solid #635bfc;
 }
 
@@ -91,4 +99,68 @@ hr {
 
 .save-cancel button {
     display: flex;
+}
+
+.modal-heading {
+    color: black;
+    font-family: "Kanit", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.modal-input {
+    margin-top: 25px;
+    border-radius: 5px;
+    width: 440px;
+    height: 38px;
+    border: 2px solid #6C63FF;
+    color: #C3C1E5;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 16px;
+}
+
+.modal-input:focus {
+    border: 2px solid #6C63FF;
+}
+
+.modal-heading {
+    margin-top: 18px;
+}
+
+
+.modal-action {
+    display: flex;
+    gap: 233px;
+    margin-top: 107px;
+}
+
+.modal-action button:first-of-type {
+    width: 110px;
+    height: 38px;
+    border-radius: 5px;
+    border: 1px solid #6C63FF;
+    color: #6C63FF;
+    font-family: "Kanit", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    transition: all 0.4s ease;
+}
+
+.modal-action button:nth-of-type(2) {
+    width: 110px;
+    height: 38px;
+    border-radius: 5px;
+    background-color: #6C63FF;
+    border: none;
+    color: white;
+    font-family: "Kanit", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    transition: all 0.4s ease;
+}
+
+.modal-action button:hover {
+    transform: scale(1.1);
 }

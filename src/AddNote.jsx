@@ -1,94 +1,63 @@
 import "./Main.css";
 import React, { useState } from "react";
-
-function AddNote() {
-    const [tasks, setTasks] = useState(["Пример задачи"]);
+import Modal from "./Modal";
+function AddNoteModal({ isOpen, setIsOpen, onSubmit, checkDublicate }) {
     const [input, setInput] = useState("");
-    const [editingIndex, setEditingIndex] = useState(null);
-    const [draft, setDraft] = useState("");
-
-    const handleSubmit = () => {
+    const [errors, setErrors] = useState([])
+    function handleSubmit() {
+        const errs = []
         const value = input.trim();
-        if (value !== "") {
-            setTasks((t) => [...t, value]);
-            setInput("");
+        console.log(value)
+        if (value === '') {
+            errs.push('Field is required')
         }
-    };
-
+        if (checkDublicate(value)) {
+            errs.push('This task already exists')
+        }
+        setErrors([...errs])
+        if (!errs.length) {
+            onSubmit(value);
+            setInput('');
+            return;
+        }
+    }
+    function handleCancel() {
+        setInput('');
+        setIsOpen(false)
+        setErrors([])
+    }
     const handleInput = (event) => setInput(event.target.value);
-
-    const handleDelete = (index) => {
-        setTasks((prev) => prev.filter((_, i) => i !== index));
-    };
-
-    const startEdit = (index, currentText) => {
-        setEditingIndex(index);
-        setDraft(currentText);
-    };
-
-    const cancelEdit = () => {
-        setEditingIndex(null);
-        setDraft("");
-    };
-
-    const saveEdit = () => {
-        const value = draft.trim();
-        if (!value) return;
-        setTasks((prev) => prev.map((t, i) => (i === editingIndex ? value : t)));
-        setEditingIndex(null);
-        setDraft("");
-    };
-
     return (
         <>
-            <div className="container">
-                <h1>New note</h1>
-                <div style={{ position: 'relative' }}><input
-                    className="add-input"
-                    value={input}
-                    onChange={handleInput}
-                    type="text"
-                    placeholder="Input your note..."
-                    onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-                />
-                    <button className="add-btn" onClick={handleSubmit}>add</button>
+            <Modal isOpen={isOpen} onClose={handleCancel}>
+                <div className="container">
+                    <h1 className="modal-heading">New note</h1>
+                    <div style={{ position: 'relative' }}>
+                        <input
+                            className="modal-input"
+                            value={input}
+                            onChange={handleInput}
+                            type="text"
+                            placeholder="Input your note..."
+                            onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+                        />
+                        <div>
+                            <ul>
+                                {errors.map((er) => {
+                                    return (
+                                        <li style={{ color: 'red' }}>{er}</li>)
+                                })}
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="modal-action">
+                        <button onClick={handleCancel}>Cancel</button>
+                        <button onClick={handleSubmit} >Apply</button>
+                    </div>
                 </div>
-                <div>
-                    <button onClick={() => setInput("")}>Cancel</button>
-                    <button >Apply</button>
-                </div>
-            </div>
-
-            <ol>
-                {tasks.map((task, index) => (
-                    <li className="task-item" key={index}>
-                        {editingIndex === index ? (
-                            <>
-                                <input
-                                    type="text"
-                                    value={draft}
-                                    onChange={(e) => setDraft(e.target.value)}
-                                    autoFocus
-                                />
-                                <div className="save-cancel">
-                                    <button onClick={cancelEdit}>Cancel</button>
-                                    <button onClick={saveEdit}>Save</button>
-                                </div></>
-                        ) : (
-                            <>
-                                <div className="tasks-content">
-                                    <input type="checkbox" />
-                                    <span>{task}</span>
-                                    <button onClick={() => handleDelete(index)}>Delete</button>
-                                    <button onClick={() => startEdit(index, task)}>Edit</button>
-                                    <hr />
-                                </div></>
-                        )}
-                    </li>
-                ))}
-            </ol>
+            </Modal>
         </>
     );
 }
 
-export default AddNote;
+export default AddNoteModal;
