@@ -30,31 +30,32 @@ function AddNoteModal({ isOpen, setIsOpen, onSubmit, checkDublicate }) {
     return (
         <>
             <Modal isOpen={isOpen} onClose={handleCancel}>
-                <div className="container">
-                    <h1 className="modal-heading">New note</h1>
-                    <div style={{ position: 'relative' }}>
-                        <input
-                            className="modal-input"
-                            value={input}
-                            onChange={handleInput}
-                            type="text"
-                            placeholder="Input your note..."
-                            onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-                        />
-                        <div>
-                            <ul>
-                                {errors.map((er) => {
-                                    return (
-                                        <li style={{ color: 'red' }}>{er}</li>)
-                                })}
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="modal-action">
-                        <button onClick={handleCancel}>Cancel</button>
-                        <button onClick={handleSubmit} >Apply</button>
+
+                <h1 className="modal-heading text-center">New note</h1>
+                <input
+                    className="modal-input mb-128"
+                    value={input}
+                    onChange={handleInput}
+                    type="text"
+                    placeholder="Input your note..."
+                    onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+                />
+                <div style={{ position: 'relative' }}>
+
+                    <div>
+                        <ul>
+                            {errors.map((er) => {
+                                return (
+                                    <li style={{ color: 'red' }}>{er}</li>)
+                            })}
+                        </ul>
                     </div>
                 </div>
+                <div className=" d-flex justify-between">
+                    <button className="btn btn-white" onClick={handleCancel}>Cancel</button>
+                    <button className="btn btn-purple" onClick={handleSubmit} >Apply</button>
+                </div>
+
             </Modal>
         </>
     );
