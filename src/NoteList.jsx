@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import detective from './assets/Detective.png'
 export default function NoteList({ tasks, setTasks }) {
     const [editingIndex, setEditingIndex] = useState(null);
     const [draft, setDraft] = useState("");
-    const [isChecked, setIsChecked] = useState(false)
+    const [checkedTasks, setCheckedTasks] = useState([]);
     const startEdit = (index, currentText) => {
         setEditingIndex(index);
         setDraft(currentText);
@@ -23,39 +24,58 @@ export default function NoteList({ tasks, setTasks }) {
         setTasks((prev) => prev.filter((_, i) => i !== index));
     };
 
-    return (<>
-        <ol>
-            {tasks.map((task, index) => (
-                <li className="task-item" key={index}>
-                    {editingIndex === index ? (
-                        <> <div className="tasks-content">
-                            <input
-                                type="text"
-                                value={draft}
-                                onChange={(e) => setDraft(e.target.value)}
-                                autoFocus
-                            />
+    const toggleCheck = (index) => {
+        setCheckedTasks((prev) => {
+            const newChecked = [...prev];
+            newChecked[index] = !newChecked[index];
+            return newChecked;
+        });
+    };
 
-                            <button onClick={cancelEdit}>Cancel</button>
-                            <button onClick={saveEdit}>Save</button>
-                            <hr />
-                        </div></>
-                    ) : (
-                        <>
-                            <div className="tasks-content">
-                                <input type="checkbox"
-                                    value={isChecked}
-                                    onChange={(e) => { setIsChecked(!isChecked) }}
-                                />
-                                <span style={{ textDecoration: isChecked ? 'line-through' : 'none', color: isChecked ? 'gray' : "black" }}>{task}</span>
-                                <button onClick={() => handleDelete(index)}>Delete</button>
-                                <button onClick={() => startEdit(index, task)}>Edit</button>
-                                <hr />
-                            </div></>
-                    )}
-                </li>
-            ))}
-        </ol>
+    return (<>
+        {
+            tasks.length
+                ?
+                <ol>
+                    {tasks.map((task, index) => (
+                        <li className="task-item" key={index}>
+                            {editingIndex === index ? (
+                                <> <div className="tasks-content container">
+                                    <input
+                                        type="text"
+                                        value={draft}
+                                        onChange={(e) => setDraft(e.target.value)}
+                                        autoFocus
+                                    />
+
+                                    <button onClick={cancelEdit}>Cancel</button>
+                                    <button onClick={saveEdit}>Save</button>
+                                    <hr />
+                                </div></>
+                            ) : (
+                                <>
+                                    <div className="tasks-content ">
+                                        <input type="checkbox"
+                                            checked={!!checkedTasks[index]}
+                                            onChange={() => toggleCheck(index)}
+                                        />
+                                        <span style={{ textDecoration: checkedTasks[index] ? 'line-through' : 'none', color: checkedTasks[index] ? 'gray' : "black" }}>{task}</span>
+                                        <div className="task-action">
+                                            <button onClick={() => handleDelete(index)}>🗑️</button>
+                                            <button onClick={() => startEdit(index, task)}>✏️</button>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                </>
+                            )}
+
+                        </li>
+                    ))}
+                </ol>
+                : <div className="empty-box">
+                    <img src={detective} alt="Detective" />
+                    <p>Empty</p></div>
+        }
 
     </>)
 }

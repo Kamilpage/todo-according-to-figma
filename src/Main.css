@@ -1,13 +1,13 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: "Kanit", sans-serif;
+    box-sizing: border-box
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    margin: 0 auto;
+    width: 750px;
 }
 
 .form-part {
@@ -23,7 +23,6 @@
 }
 
 h1 {
-    font-family: "Kanit", sans-serif;
     font-weight: 500;
     font-size: 26px;
     color: black;
@@ -34,43 +33,30 @@ h1 {
     height: 38px;
     border-radius: 5px;
     border: 2px solid #6C63FF;
+    outline: none;
+    font-size: 16px;
+    padding-left: 16px;
 }
 
 .add-btn {
     position: fixed;
-    cursor: pointer;
-    background-color: rgb(0, 0, 0);
-    color: white;
-    bottom: 60px;
-    margin-left: 150px;
-    border-radius: 50%;
-    padding: 8px;
-    border: none;
-    transition: all 0.4s ease;
-}
-
-.add-btn:hover {
-    transform: scale(1.1);
+    bottom: 0;
+    right: 0;
 }
 
 .search-input::placeholder {
     color: #C3C1E5;
-    font-family: "Inter", sans-serif;
     font-size: 16px;
     font-weight: 500;
     padding-left: 16px;
 }
 
-.search-input:focus {
-    border: 2px solid #635bfc;
-}
 
 select {
     width: 85px;
     height: 38px;
     border-radius: 5px;
     background-color: #6C63FF;
-    font-family: "Kanit", sans-serif;
     font-weight: 500;
     font-size: 18px;
     color: white;
@@ -80,22 +66,29 @@ select {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 25px;
     flex-direction: column;
+    max-width: 750px;
 }
 
 .tasks-content {
+    display: flex;
+    padding-top: 10px;
     font-weight: 500;
-    font-family: "Kanit", sans-serif;
     font-size: 20px;
     color: black;
+    justify-content: flex-end;
+    position: relative;
+
 }
 
-hr {
-    width: 520px;
-    margin-top: 17px;
-    margin-bottom: 17px;
+.task-action {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    left: 480px;
 }
+
+
 
 .save-cancel button {
     display: flex;
@@ -103,64 +96,52 @@ hr {
 
 .modal-heading {
     color: black;
-    font-family: "Kanit", sans-serif;
     font-size: 24px;
     font-weight: 500;
+    text-transform: uppercase;
+    padding-bottom: 25px;
 }
 
 .modal-input {
-    margin-top: 25px;
     border-radius: 5px;
-    width: 440px;
-    height: 38px;
+    width: 100%;
+    line-height: 38px;
     border: 2px solid #6C63FF;
-    color: #C3C1E5;
-    font-family: "Inter", sans-serif;
+    color: #000000;
     font-size: 16px;
-    font-weight: 500;
-    padding-left: 16px;
-}
-
-.modal-input:focus {
-    border: 2px solid #6C63FF;
-}
-
-.modal-heading {
-    margin-top: 18px;
+    outline: none;
+    padding: 0 16px;
 }
 
 
-.modal-action {
+.modal-input::placeholder {
+    color: #C3C1E5;
+}
+
+.empty-box {
     display: flex;
-    gap: 233px;
-    margin-top: 107px;
+    justify-content: center;
+    align-items: center;
 }
 
-.modal-action button:first-of-type {
-    width: 110px;
-    height: 38px;
-    border-radius: 5px;
-    border: 1px solid #6C63FF;
-    color: #6C63FF;
-    font-family: "Kanit", sans-serif;
-    font-size: 24px;
-    font-weight: 500;
-    transition: all 0.4s ease;
+.mb-128 {
+    margin-bottom: 128px;
 }
 
-.modal-action button:nth-of-type(2) {
-    width: 110px;
-    height: 38px;
-    border-radius: 5px;
+.text-center {
+    text-align: center;
+}
+
+.add-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     background-color: #6C63FF;
     border: none;
     color: white;
-    font-family: "Kanit", sans-serif;
     font-size: 24px;
-    font-weight: 500;
-    transition: all 0.4s ease;
-}
-
-.modal-action button:hover {
-    transform: scale(1.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
