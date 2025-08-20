@@ -64,29 +64,45 @@ select {
 
 .task-item {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    max-width: 750px;
 }
 
 .tasks-content {
     display: flex;
-    padding-top: 10px;
-    font-weight: 500;
+    justify-content: space-between;
     font-size: 20px;
     color: black;
-    justify-content: flex-end;
-    position: relative;
-
+    padding: 17px 0;
 }
 
-.task-action {
-    display: flex;
+.task-item:first-child .tasks-content {
+    padding-top: 0;
+}
+
+.task-item:last-child .tasks-content {
+    padding-bottom: 0;
+}
+
+.task-right,
+.task-left {
+    display: flex
+}
+
+.task-right {
     gap: 10px;
-    position: absolute;
-    left: 480px;
 }
+
+.task-left {
+    gap: 17px;
+    cursor: pointer;
+}
+
+.task-container {
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+}
+
 
 
 
@@ -113,15 +129,12 @@ select {
     padding: 0 16px;
 }
 
-
 .modal-input::placeholder {
     color: #C3C1E5;
 }
 
-.empty-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.mt-30 {
+    margin-top: 30px;
 }
 
 .mb-128 {
@@ -144,4 +157,30 @@ select {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+.empty-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tasks-content-edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.tasks-content-edit input {
+    border-radius: 5px;
+    width: 100%;
+    line-height: 38px;
+    border: 2px solid #6C63FF;
+    color: #000000;
+    font-size: 16px;
+    outline: none;
+    padding: 0 16px;
+
 }

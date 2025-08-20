@@ -1,10 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import detective from './assets/Detective.png'
+import './Main.css'
 export default function NoteList({ tasks, setTasks }) {
     const [editingIndex, setEditingIndex] = useState(null);
     const [draft, setDraft] = useState("");
     const [checkedTasks, setCheckedTasks] = useState([]);
+
     const startEdit = (index, currentText) => {
         setEditingIndex(index);
         setDraft(currentText);
@@ -33,49 +35,47 @@ export default function NoteList({ tasks, setTasks }) {
     };
 
     return (<>
-        {
-            tasks.length
-                ?
-                <ol>
-                    {tasks.map((task, index) => (
-                        <li className="task-item" key={index}>
+        <div className="task-container mt-30">
+            {
+                tasks.length ?
+                    tasks.map((task, index) => (
+                        <div className="task-item" key={index}>
                             {editingIndex === index ? (
-                                <> <div className="tasks-content container">
+                                <div className="tasks-content-edit">
                                     <input
                                         type="text"
                                         value={draft}
                                         onChange={(e) => setDraft(e.target.value)}
                                         autoFocus
                                     />
-
-                                    <button onClick={cancelEdit}>Cancel</button>
-                                    <button onClick={saveEdit}>Save</button>
-                                    <hr />
-                                </div></>
+                                    <button className="btn-white btn" onClick={cancelEdit}>Cancel</button>
+                                    <button className="btn-purple btn" onClick={saveEdit}>Save</button>
+                                    {tasks.length > index + 1 ? <hr /> : ''}
+                                </div>
                             ) : (
                                 <>
                                     <div className="tasks-content ">
-                                        <input type="checkbox"
-                                            checked={!!checkedTasks[index]}
-                                            onChange={() => toggleCheck(index)}
-                                        />
-                                        <span style={{ textDecoration: checkedTasks[index] ? 'line-through' : 'none', color: checkedTasks[index] ? 'gray' : "black" }}>{task}</span>
-                                        <div className="task-action">
+                                        <div className="task-left">
+                                            <input type="checkbox"
+                                                checked={!!checkedTasks[index]}
+                                                onChange={() => toggleCheck(index)}
+                                            />
+                                            <span onClick={() => { toggleCheck(index) }} className="taskEl" style={{ textDecoration: checkedTasks[index] ? 'line-through' : 'none', color: checkedTasks[index] ? 'gray' : "black" }}>{task}</span>
+                                        </div>
+                                        <div className="task-right">
                                             <button onClick={() => handleDelete(index)}>🗑️</button>
                                             <button onClick={() => startEdit(index, task)}>✏️</button>
                                         </div>
                                     </div>
-                                    <hr />
+                                    {tasks.length > index + 1 ? <hr /> : ''}
                                 </>
                             )}
-
-                        </li>
-                    ))}
-                </ol>
-                : <div className="empty-box">
-                    <img src={detective} alt="Detective" />
-                    <p>Empty</p></div>
-        }
-
+                        </div>
+                    ))
+                    : <div className="empty-box">
+                        <img src={detective} alt="Detective" />
+                        <p>Empty</p></div>
+            }
+        </div>
     </>)
 }

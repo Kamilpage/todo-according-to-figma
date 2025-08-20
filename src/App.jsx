@@ -65,8 +65,8 @@ function App() {
           <img src={theme} alt="Empty" />
         </div>
         <button className="add-btn" style={{ position: 'fixed', bottom: '32px', right: rightAngle + 'px' }} onClick={() => setIsOpen(true)}><img src={plusIcon} alt="plusIcon" /></button>
+        <NoteList tasks={filteredItems} setTasks={setTasks} />
       </div>
-      <NoteList tasks={filteredItems} setTasks={setTasks} />
       <AddNoteModal onSubmit={handleSubmit} isOpen={isOpen} setIsOpen={setIsOpen} checkDublicate={checkDublicate} />
     </>
   )
