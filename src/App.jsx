@@ -6,7 +6,7 @@ import search from './assets/vector.svg'
 import theme from './assets/react.svg'
 import plusIcon from './assets/plus.svg'
 function App() {
-  const [tasks, setTasks] = useState(["Пример задачи"]);
+  const [tasks, setTasks] = useState([]);
   const [isOpen, setIsOpen] = useState(false)
   const [searchInput, setSearchInput] = useState('')
   const [selectSort, setSelectSort] = useState('all')
@@ -48,23 +48,31 @@ function App() {
   return (
     <>
       <div className='container'>
-        <h1 className="text-center">TODO LIST</h1>
+        <h1 className="text-center h1-head">TODO LIST</h1>
         <div className='form-part'>
+          <div className={'searchEngine'}>
           <input
             value={searchInput}
             onChange={(e) => { setSearchInput(e.target.value) }}
             className="search-input"
             type="text" placeholder='Search note...' />
           <img id="vector-icon" src={search} alt="Vector" />
+          </div>
+          <div className={'sortSelect'}>
           <select value={selectSort}
             onChange={(e) => setSelectSort(e.target.value)}>
             <option value="all">ALL</option>
             <option value="asc">A-Z</option>
             <option value="desc">Z-A</option>
           </select>
-          <img src={theme} alt="Empty" />
+          </div>
         </div>
-        <button className="add-btn" style={{ position: 'fixed', bottom: '32px', right: rightAngle + 'px' }} onClick={() => setIsOpen(true)}><img src={plusIcon} alt="plusIcon" /></button>
+        <button className="add-btn"
+                style={{ position: 'fixed', bottom: '32px', right: rightAngle + 'px' }}
+                onClick={() => setIsOpen(true)}>
+          <img src={plusIcon}
+               alt="plusIcon" />
+        </button>
         <NoteList tasks={filteredItems} setTasks={setTasks} />
       </div>
       <AddNoteModal onSubmit={handleSubmit} isOpen={isOpen} setIsOpen={setIsOpen} checkDublicate={checkDublicate} />
