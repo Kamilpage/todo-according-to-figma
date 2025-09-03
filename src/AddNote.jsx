@@ -63,7 +63,7 @@ function AddNoteModal({ isOpen, setIsOpen, onSubmit, checkDublicate }) {
                 </ul>
             </div>
 
-            <div className="d-flex justify-between">
+            <div className="d-flex justify-between edit-btn">
                 <button className="btn btn-white" onClick={handleCancel}>
                     Cancel
                 </button>

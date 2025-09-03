@@ -82,7 +82,8 @@ export default function NoteList({tasks, setTasks}) {
                                                    checked={!!checkedTasks[index]}
                                                    onChange={() => toggleCheck(index)}
                                             />
-                                            <p onClick={() => {
+                                            <p
+                                                onClick={() => {
                                                 toggleCheck(index)
                                             }} className="taskEl" style={{
                                                 lineHeight: '100%',

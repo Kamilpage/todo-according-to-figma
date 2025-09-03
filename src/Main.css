@@ -45,7 +45,7 @@ h1 {
 }
 
 .search-input {
-    width: 595px;
+    width: 650px;
     height: 38px;
     border-radius: 5px;
     border: 1px solid #6C63FF;
@@ -122,10 +122,16 @@ select {
 .task-right button:hover {
     transform: scale(1.1);
 }
+.task-right button:focus {
+    outline: none;
+}
 
 .task-left {
     gap: 17px;
     cursor: pointer;
+}
+.task-left input:focus{
+    outline: none;
 }
 
 .task-container {
@@ -262,4 +268,8 @@ hr {
     border: none;
     background-color: #6C63FF;
     height: 1px;
+}
+
+.taskEl{
+    overflow: hidden;
 }

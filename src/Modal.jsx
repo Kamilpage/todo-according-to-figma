@@ -16,7 +16,7 @@ export default function Modal({ isOpen, onClose, children }) {
         if (e.key === "Escape") { onClose() };
     }
     return ReactDOM.createPortal(
-        <div className="modal-overlay" onClick={onClose}>
+        <div className="modal-overlay">
             <div
                 className="modal-content"
                 onClick={(e) => e.stopPropagation()}
