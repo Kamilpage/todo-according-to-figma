@@ -1,0 +1,54 @@
+
+.container {
+    max-width: 1138px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    max-height: 64px;
+    height: 100%;
+    padding-top: 55px;
+}
+
+.nav-left {
+
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 21px;
+    color: #ffffff;
+}
+
+.nav-links {
+
+}
+
+.vertical-line {
+    width: 30px;
+    height: 1px;
+    rotate: 90deg;
+    margin: 0;
+    border: none;
+    background: #ffffff;
+    display: inline-block;
+}
+
+.contact {
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px
+}
+
+.contact-left {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+
+}

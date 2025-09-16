@@ -1,0 +1,47 @@
+.gallery-section{
+    padding-top: 101px;
+}
+
+.galleryHeader{
+    font-family: Tinos, sans-serif;
+    text-align: center;
+    font-weight: 400;
+    font-size: 54px;
+    padding-top: 100px;
+}
+
+.galleryImages-first{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.galleryImages{
+
+}
+
+.firstSet{
+    display: flex;
+    padding-top: 60px;
+    gap: 30px;
+}
+.secondSet{
+    display: flex;
+    gap: 30px;
+
+}
+
+.galleryImages-second{
+    padding-top: 107px;
+    display: flex;
+    gap: 30px;
+}
+
+.lastBg{
+    margin-top: 100px;
+    background-image: url("../assets/last.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+padding:100px ;
+
+}

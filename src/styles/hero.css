@@ -1,0 +1,52 @@
+
+.main__inner{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 231px;
+    padding-top: 322px;
+    margin-top: -119px;
+}
+
+.background-img {
+        background-image: url("../assets/background.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        padding-bottom:119px ;
+}
+
+.welcome-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+.welcome-text__inner h3 {
+    font-weight: 400;
+    font-size: 50px;
+}
+
+.welcome-text__inner h2 {
+    font-weight: 400;
+    font-size: 80px;
+    margin-bottom: 12px;
+}
+
+.welcome-text__inner p {
+    color: #ffffff;
+    margin-bottom: 21px;
+}
+
+.welcome-text__inner hr {
+    background-color: #C4C4C4;
+    height: 2px;
+    width: 61px;
+}
+
+.dom-edi{
+    display: flex;
+    flex-direction: row;
+}

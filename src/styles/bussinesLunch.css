@@ -1,0 +1,33 @@
+.bussines-bg {
+    background-image: url("../assets/bussinesLunchBG.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.bussinesLunch__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 0 104px 0;
+margin-bottom: 132px;
+}
+
+.bussinesLunch__inner-info h2 {
+    font-family: Tinos, sans-serif;
+    font-weight: 400;
+    font-size: 52px;
+    color: #D67E34;
+    margin-bottom: 20px;
+}
+
+.bussinesLunch__inner-info p {
+    font-family: OpenSans, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.bussinesLunch__inner-action{
+
+}

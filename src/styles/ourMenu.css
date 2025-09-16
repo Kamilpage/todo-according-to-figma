@@ -1,0 +1,99 @@
+
+.our-menu__inner {
+    position: relative;
+}
+
+.menu-image {
+    background-image: url("../assets/our-menu.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.our-menu__header {
+    color: #ffffff;
+    text-align: center;
+    padding: 100px 0 138px 0;
+    font-family: Tinos, sans-serif;
+    font-size: 54px;
+    font-weight: 400;
+    box-shadow: #656363 0.5px 0.5px 0.5px;
+}
+
+.our-menu__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 226px;
+
+}
+
+.burger-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 80px 63px 29px 63px;
+    position: relative;
+}
+
+.isRecommended{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.isRecommended p {
+
+    background-color: #D67E34;
+    color: black;
+    padding: 12px;
+}
+
+.not-recommended {
+    display: none;
+}
+
+.burger-item{
+
+}
+
+.burger-item img {
+    border-radius: 50%;
+
+}
+
+
+.burger-item h3 {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 30px;
+    font-family: Cookies, serif;
+    background-color: #FF7400;
+    border-radius: 50%;
+    padding: 30px;
+    border: #FFE8D0 1px solid;
+}
+
+.burger-item h2 {
+    margin: 22px 0 12px 0;
+
+}
+
+.burger-item p {
+    margin-bottom: 20px;
+}
+
+.burger-item button {
+    margin-bottom: 29px;
+}
+
+.price-tag {
+    position: absolute;
+    transform: translateY(-100%);
+    right: -26px;
+
+
+}

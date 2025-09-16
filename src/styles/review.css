@@ -1,0 +1,44 @@
+.review-section {
+    background-color: #E5E5E5;
+}
+.review-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.review-item p {
+    padding-top: 104px;
+    font-family: OpenSans, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    max-width: 920px;
+    color: black;
+}
+
+.review-item img{
+border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.review-item h2{
+font-weight: 600;
+    font-family: OpenSans, sans-serif;
+    font-size: 20px;
+    color: black;
+}
+
+.review-item h1{
+    font-family: OpenSans, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+    padding-bottom: 139px;
+}
+
+.review-item {
+
+}
